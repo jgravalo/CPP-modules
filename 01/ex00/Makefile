@@ -13,15 +13,16 @@ OBJS		=	$(addprefix $(OBJ_DIR),$(subst .cpp,.o,$(FILES_CPP)))
 DEPS		=	$(subst .o,.d,$(OBJS))
 RM			=	rm -rf
 MKD			=	mkdir -p
+MK			=	Makefile
 
 #$(OBJ_DIR)		:
 #	$(MKD) $(OBJ_DIR)
 
-$(OBJ_DIR)%.o	: $(SRC_DIR)%.cpp Makefile
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(MK)
 	$(MKD) $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) $(DEPFLAGS) $(INC) -c $< -o $@
 
-$(NAME)			:	$(OBJS)
+$(NAME)	:	$(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 all		:	$(NAME)
