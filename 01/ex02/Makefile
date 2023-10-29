@@ -4,8 +4,7 @@ EXT			=	.cpp
 CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS	=	-MMD -MP
 FILES		=	main
-FILES_CPP	=	$(addsuffix $(EXT),$(FILES))
-SRCS		=	$(FILES_CPP)
+SRCS		=	$(addsuffix $(EXT),$(FILES))
 OBJ_DIR		=	obj/
 OBJS		=	$(addprefix $(OBJ_DIR),$(subst $(EXT),.o,$(FILES_CPP)))
 DEPS		=	$(subst .o,.d,$(OBJS))
