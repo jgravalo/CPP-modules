@@ -19,7 +19,7 @@ MK			=	Makefile
 #	$(MKD) $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(MK)
-	$(MKD) $(OBJ_DIR)
+	@$(MKD) $(OBJ_DIR)
 	$(CC) $(CPPFLAGS) $(DEPFLAGS) $(INC) -c $< -o $@
 
 $(NAME)	:	$(OBJS)
