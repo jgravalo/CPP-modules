@@ -4,23 +4,22 @@ CPPFLAGS	=	-Wall -Werror -Wextra
 CPPSTYLE	=	-std=c++98
 FILES		=	main Zombie newZombie randomChump
 SRCS		=	$(addsuffix .cpp,$(FILES))
-OBJS		=	$(SRCS:.o=.cpp) #$(subst .cpp,.o,$(SRCS))
+OBJS		=	$(subst .cpp,.o,$(SRCS))
 RM			=	rm -rf
 MKD			=	mkdir -p
 
-%.o: %.cpp
-	$(CC) $(CPPFLAGS) $(CPPSTYLE) -c $(SRCS)
+%.o: %.cpp Makefile
+	$(CC) $(CPPFLAGS) $(CPPSTYLE) -c $< -o $@
 
-$(NAME)	:	$(SRCS)
+$(NAME)	:	$(OBJS)
 	$(CC) $(CPPFLAGS) $(CPPSTYLE) $(OBJS) -o $(NAME)
 
-all:
-	$(MAKE)	$(NAME)
+all:	$(NAME)
 
-clean	:	$(OBJS)
+clean	:
 	$(RM) $(OBJS)
 
-fclean	:	$(NAME) clean
+fclean	:
 	$(MAKE) clean
 	$(RM) $(NAME)
 

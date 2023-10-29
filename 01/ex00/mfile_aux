@@ -1,0 +1,36 @@
+NAME		=	Zombie
+CC			=	c++
+CPPFLAGS	=	-Wall -Werror -Wextra
+CPPSTYLE	=	-std=c++98
+HEADER		=	Zombie.hpp
+INC			=	-I$(HEADER)
+FILES		=	main Zombie newZombie randomChump
+SRC_DIR		=	src/
+SRCS		=	$(addprefix $(SRC_DIR),$(addsuffix .cpp,$(FILES)))
+OBJ_DIR		=	obj/
+OBJS		=	$(subst $(SRC_DIR),$(OBJ_DIR),$(subst .cpp,.o,$(SRCS)))
+RM			=	rm -rf
+MKD			=	mkdir -p
+
+$(OBJ_DIR)%.o		: $(SRC_DIR)%.cpp Makefile
+	$(MKD) $(OBJ_DIR)
+	$(CC) $(CPPFLAGS) $(CPPSTYLE) $(INC) -c $< -o $@
+
+$(NAME)	: $(OBJS)
+	$(CC) $(CPPFLAGS) $(CPPSTYLE) $(INC) $(OBJS) -o $(NAME)
+
+all		:	$(NAME)
+
+clean	:
+#	$(RM) $(OBJS)
+	$(RM) $(OBJ_DIR)
+
+fclean	:
+	$(MAKE) clean
+	$(RM) $(NAME)
+
+re		:	all fclean
+	$(MAKE) fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
