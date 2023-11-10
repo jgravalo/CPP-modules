@@ -35,6 +35,7 @@ void    Phonebook::add(void)
         ;
     std::cout << "n of contacts: " << i << std::endl;
     //if (i == 8)
+    size++;
     contact[i].Set_Contact(data[0], data[1], data[2], data[3], data[4]);
     contact[i].Display1(i);
 }
@@ -53,9 +54,14 @@ void    Phonebook::search(void)
     //{
         /* code */
         getline(std::cin, index);
-        i = std::stoi(index) - 1;
+        i = std::stoi(index);
     //}
-    contact[i].Display2();
+    if (i > 0 && i <= 8)
+    {
+        std::cerr << "bad index" <<std::endl;
+        return ;
+    }
+    contact[i - 1].Display2();
 }
 
 void    Phonebook::exit(void)

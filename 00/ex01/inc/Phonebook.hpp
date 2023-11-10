@@ -4,7 +4,7 @@ class Phonebook
 {
     private:
         Contact contact[8];
-//        int     size;
+        int     size;
     public:
         Phonebook();
         Phonebook(Contact _contact);
