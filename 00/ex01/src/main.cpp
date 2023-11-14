@@ -9,19 +9,12 @@ int main()
     while (1)
     {
         std::getline(std::cin, buffer);
-        if (buffer == "add")//"ADD")
-        {
-            std::cout << "add" << std::endl;
+        if (buffer == "ADD")
             Phonebook.add();
-        }
-        else if (buffer == "search")//"SEARCH")
-        {
-            std::cout << "search" << std::endl;
+        else if (buffer == "SEARCH")
             Phonebook.search();
-        }
-        else if (buffer == "exit")//"EXIT")
+        else if (buffer == "EXIT")
             return (0);
-//            Phonebook.exit();
     }
     return (0);
 }
