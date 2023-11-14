@@ -47,9 +47,7 @@ void    Phonebook::add(void)
     }
     if (full == 0)
         size++;
-    //std::cout << "n of contacts: " << size << std::endl;
     contact[size - 1].Set_Contact(data[0], data[1], data[2], data[3], data[4]);
-    //contact[size - 1].Display1(size);
 }
 
 void    Phonebook::search(void)
@@ -57,7 +55,7 @@ void    Phonebook::search(void)
     int         i;
     std::string index;
 
-    if (size == 0)
+    if (!size)
     {
         std::cerr << "There are no contacts" << std::endl;
         return ;

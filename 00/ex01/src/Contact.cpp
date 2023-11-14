@@ -27,22 +27,11 @@ void    Contact::Set_Contact(std::string _first_name,
                             std::string _phone_number,
                             std::string _darkest_secret)
 {
-    //std::cout << "entra en set_contact" << std::endl;
     first_name = _first_name;
     last_name = _last_name;
     nickname = _nickname;
     phone_number = _phone_number;
     darkest_secret = _darkest_secret;
-    //std::cout << phone_number << std::endl;
-}
-
-int     Contact::Exist(void)
-{
-    if (phone_number != "")
-    {
-        return (1);
-    }
-    return (0);
 }
 
 void    Contact::Display1(int index)

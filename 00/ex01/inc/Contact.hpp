@@ -21,7 +21,6 @@ class Contact
         ~Contact();
         void    Display1(int index);
         void    Display2(void);
-        int     Exist(void);
         void    Set_Contact(
             std::string first_name,
             std::string last_name,
