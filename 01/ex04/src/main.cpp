@@ -2,9 +2,9 @@
 
 int main(int argc, char **argv)
 {
-    std::string     file = argv[1];
-    std::string     input = argv[2];
-    std::string     output = argv[3];
+    std::string     file;
+    std::string     input;
+    std::string     output;
     std::ifstream   infile;
     std::ofstream   outfile;
     std::string     buffer;
@@ -15,11 +15,19 @@ int main(int argc, char **argv)
         std::cout << "Numero incorrecto de argumentos" << std::endl;
         return (1);
     }
+    file = argv[1];
+    input = argv[2];
+    output = argv[3];
     infile.open(file);
-    outfile.open(file + ".replace");
-    if (!infile.is_open() || !outfile)
+    if (!infile.is_open())
     {
-        std::cout << "Error al abrir " << std::endl;
+        std::cout << "Error al abrir input" << std::endl;
+        return (1);
+    }
+    outfile.open(file + ".replace");
+    if (!outfile)
+    {
+        std::cout << "Error al abrir output" << std::endl;
         return (1);
     }
     while (std::getline(infile, buffer))
