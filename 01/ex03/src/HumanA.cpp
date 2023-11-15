@@ -2,7 +2,6 @@
 
 HumanA::HumanA(class Weapon& _Weapon) : Weapon(_Weapon)
 {
-    //Weapon.setType(_Weapon.getType());
 }
 
 HumanA::HumanA(std::string _name, class Weapon& _Weapon) : name(_name), Weapon(_Weapon)

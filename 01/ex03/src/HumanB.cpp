@@ -18,7 +18,7 @@ void    HumanB::attack(void)
     std::cout << name << " attacks with their " << Weapon->getType() << std::endl;
 }
 
-void HumanB::setWeapon(class Weapon _Weapon)
+void HumanB::setWeapon(class Weapon& _Weapon)
 {
     Weapon = &_Weapon;
 }
