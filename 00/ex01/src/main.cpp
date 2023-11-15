@@ -8,7 +8,8 @@ int main()
 
     while (1)
     {
-        std::getline(std::cin, buffer);
+        if (std::getline(std::cin, buffer) == 0)
+            return (0);
         if (buffer == "ADD")
             Phonebook.add();
         else if (buffer == "SEARCH")

@@ -29,10 +29,16 @@ void    Phonebook::add(void)
     for (i = 0; i < n; i++)
     {
             std::cout << field[i] << ": ";
-            getline(std::cin, data[i]);
+            if (getline(std::cin, data[i]) == 0)
+            {
+                fail = 2;
+                break ;
+            }
             if (data[i] == "")
                 fail = 1;
     }
+    if (fail == 2)
+        return ;
     if (fail == 1)
     {
         std::cerr << "Error: empty field when setting contact" << std::endl;
@@ -63,9 +69,10 @@ void    Phonebook::search(void)
     for (i = 0; i < size; i++)
     {
         contact[i].Display1(i);
-    }
+    } 
     std::cout << "Enter index: ";
-    getline(std::cin, index);
+    if (getline(std::cin, index) == 0)
+        return ;
     i = std::stoi(index);
     if (!(i > 0 && i <= size))
     {
