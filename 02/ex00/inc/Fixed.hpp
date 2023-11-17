@@ -4,7 +4,7 @@ class Fixed
 {
     private:
         int n;
-        static const int frac;
+        static const int bits = 8;
     public:
        Fixed(void);
        Fixed(int n);
