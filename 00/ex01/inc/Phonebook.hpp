@@ -12,4 +12,6 @@ class Phonebook
         void    add(void);
         void    search(void);
         void    exit(void);
+        int     isnumber(std::string str);
+        int     isempty(std::string str);
 };
