@@ -8,7 +8,7 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(int _n)
 {
-    n = _n;
+    n = _n << bits;
 }
 
 Fixed::Fixed(const class Fixed& _Fixed)//copy constructor
@@ -33,10 +33,9 @@ int     Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return (n);
-
 }
 
 void    Fixed::setRawBits(int const raw)
 {
-    n = raw;
+    n = raw << bits;
 }
