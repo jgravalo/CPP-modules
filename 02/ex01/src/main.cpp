@@ -2,15 +2,6 @@
 
 int main( void )
 {
-/*
-    float a = 42.42;
-    int b;
-    std::cout << a << std::endl;
-    b = roundf(a * ( 1 << 8 ));
-    std::cout << b << std::endl;
-    a = static_cast<float>(b) / ( 1 << 8 );
-    std::cout << a << std::endl;
-*/
     Fixed a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
@@ -25,6 +16,5 @@ int main( void )
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-   
     return 0;
 }

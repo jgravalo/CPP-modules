@@ -9,7 +9,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(int _n)
 {
     std::cout << "Int constructor called" << std::endl;
-    n = _n >> bits;
+    n = _n << bits;
 }
 
 Fixed::Fixed(const float _n)
