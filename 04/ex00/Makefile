@@ -5,7 +5,7 @@ CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS	=	-MMD -MP
 HEADER		=	inc/
 INC			=	-I$(HEADER)
-FILES		=	main Animal Cat Dog
+FILES		=	main Animal Cat Dog WrongAnimal WrongCat
 FILES_CPP	=	$(addsuffix $(EXT),$(FILES))
 SRC_DIR		=	src/
 SRCS		=	$(addprefix $(SRC_DIR),$(FILES_CPP)))
