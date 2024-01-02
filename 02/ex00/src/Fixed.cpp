@@ -37,5 +37,5 @@ int     Fixed::getRawBits(void) const
 
 void    Fixed::setRawBits(int const raw)
 {
-    n = raw << bits;
+    n = raw;
 }
