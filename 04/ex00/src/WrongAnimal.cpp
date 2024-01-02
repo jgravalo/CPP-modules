@@ -4,14 +4,14 @@ WrongAnimal::WrongAnimal(void)
 {
     std::cout << "WrongAnimal Default constructor called" << std::endl;
     type = "Animal";
-    sound = "aaaaaauuuuuuuuu";
+    sound = "hola";
 }
 
 WrongAnimal::WrongAnimal(std::string _type)
 {
     std::cout << "WrongAnimal constructor with arguments called" << std::endl;
     type = _type;
-    sound = "aaaaaauuuuuuuuu";
+    sound = "hola";
 }
 
 WrongAnimal::WrongAnimal(class WrongAnimal &Copy)
