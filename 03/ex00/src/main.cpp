@@ -4,10 +4,12 @@ int main()
 {
     ClapTrap    A("Franklin");
     ClapTrap    B(A);
-    //ScavTrap    C;
+    ClapTrap    C;
 
     B.setName("Trevor");
-    //C.setName("Michael");
+    C = A;
+    C.setName("Michael");
+    C.displayInfo();
     A.attack(B.getName());
     B.displayInfo();
     B.takeDamage(A.getAttackDamage());
