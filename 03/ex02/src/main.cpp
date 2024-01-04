@@ -16,5 +16,6 @@ int main()
     B.displayInfo();
     B.beRepaired(2);
     B.displayInfo();
+    C.highFivesGuys();
     return (0);
 }
