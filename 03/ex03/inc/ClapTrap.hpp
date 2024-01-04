@@ -6,10 +6,10 @@
 class ClapTrap
 {
     protected:
-        static std::string  name;
-        static int         HitPoints;
-        static int         EnergyPoints;
-        static int         AttackDamage;
+        std::string name;
+        int         HitPoints;
+        int         EnergyPoints;
+        int         AttackDamage;
     public:
         ClapTrap(void);
         ClapTrap(std::string name);
@@ -17,10 +17,10 @@ class ClapTrap
         ClapTrap&   operator=(class ClapTrap& Copy);
         ~ClapTrap();
         void        setName(std::string name);
-        static std::string getName(void);
-        static int         getHitPoints(void);
-        static int         getEnergyPoints(void);
-        static int         getAttackDamage(void);
+        std::string getName(void);
+        int         getHitPoints(void);
+        int         getEnergyPoints(void);
+        int         getAttackDamage(void);
         void        attack(const std::string& target);
         void        takeDamage(unsigned int amount);
         void        beRepaired(unsigned int amount);

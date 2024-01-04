@@ -1,11 +1,11 @@
-NAME		=	FragTrap
+NAME		=	DiamondTrap
 CC			=	c++
 EXT			=	.cpp
 CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS	=	-MMD -MP
 HEADER		=	inc/
 INC			=	-I$(HEADER)
-FILES		=	main ClapTrap ScavTrap FragTrap DiamondTrap
+FILES		=	main ClapTrap FragTrap DiamondTrap
 FILES_CPP	=	$(addsuffix $(EXT),$(FILES))
 SRC_DIR		=	src/
 SRCS		=	$(addprefix $(SRC_DIR),$(FILES_CPP))
