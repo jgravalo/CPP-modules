@@ -16,5 +16,8 @@ int main()
     B.displayInfo();
     B.beRepaired(2);
     B.displayInfo();
+    C.guardGate();
+    C.highFivesGuys();
+    C.whoAmI();
     return (0);
 }
