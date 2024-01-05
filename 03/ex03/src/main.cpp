@@ -7,10 +7,14 @@ int main()
     DiamondTrap    C;
 
     B.setName("Trevor");
+    std::cout << "aqui" << std::endl;
     C = A;
     C.setName("Michael");
     C.displayInfo();
     A.attack(B.getName());
+    A.whoAmI();
+    B.whoAmI();
+    C.whoAmI();
     B.displayInfo();
     B.takeDamage(A.getAttackDamage());
     B.displayInfo();
