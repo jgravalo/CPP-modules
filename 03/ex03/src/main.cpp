@@ -11,11 +11,11 @@ int main()
     C = A;
     C.setName("Michael");
     C.displayInfo();
-    A.attack(B.getName());
     A.whoAmI();
     B.whoAmI();
     C.whoAmI();
     B.displayInfo();
+    A.attack(B.getName());
     B.takeDamage(A.getAttackDamage());
     B.displayInfo();
     B.beRepaired(2);
