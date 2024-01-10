@@ -13,6 +13,7 @@ class Dog : public Animal
         Dog(class Dog &Copy);
         Dog&        operator=(class Dog &Copy);
         virtual ~Dog();
+		void	makeSound(void) const;
 };
 
 #endif

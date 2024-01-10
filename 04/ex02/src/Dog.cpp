@@ -31,3 +31,11 @@ Dog::~Dog()
     std::cout << "Dog Destructor called" << std::endl;
     delete Brain;
 }
+
+void	Dog::makeSound(void) const
+{
+    if (sound == "")
+        return ;
+    std::cout << sound << std::endl;
+}
+
