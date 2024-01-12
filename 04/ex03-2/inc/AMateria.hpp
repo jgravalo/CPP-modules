@@ -1,7 +1,6 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
-
-#pragma once
+//#pragma once
 
 #include<iostream>
 

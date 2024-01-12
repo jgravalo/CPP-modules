@@ -40,5 +40,7 @@ AMateria* AMateria::clone() const
 {
 	//AMateria	*n = new AMateria(*this);
 	AMateria	*n = NULL;
+	n->type = type;
+	//AMateria n(*this);
 	return (n);
 }

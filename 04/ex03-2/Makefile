@@ -5,7 +5,7 @@ CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98 #-fsanitize=address
 DEPFLAGS	=	-MMD -MP
 HEADER		=	inc/
 INC			=	-I$(HEADER)
-FILES		=	main AMateria Cure Ice
+FILES		=	main AMateria Cure Ice Character
 FILES_CPP	=	$(addsuffix $(EXT),$(FILES))
 SRC_DIR		=	src/
 SRCS		=	$(addprefix $(SRC_DIR),$(FILES_CPP)))
@@ -32,7 +32,7 @@ fclean	:
 	$(MAKE) clean
 	$(RM) $(NAME)
 
-re		:	all fclean
+re		:
 	$(MAKE) fclean
 	$(MAKE) all
 
