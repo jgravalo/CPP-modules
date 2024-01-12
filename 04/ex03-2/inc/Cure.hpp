@@ -2,6 +2,7 @@
 #define CURE_HPP
 
 #include"AMateria.hpp"
+#include"All.h"
 
 class Cure : public AMateria
 {
@@ -12,6 +13,7 @@ class Cure : public AMateria
 		Cure&	operator=(class Cure& Copy);
 		~Cure();
 		Cure*	clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

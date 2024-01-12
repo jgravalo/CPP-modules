@@ -2,7 +2,7 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include "All.h"
 
 class Character : public ICharacter
 {

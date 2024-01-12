@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include<iostream>
 #include<Ice.hpp>
 #include<Cure.hpp>
 #include<Character.hpp>

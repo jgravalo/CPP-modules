@@ -28,8 +28,12 @@ void test_Ice_Cure()
 	std::cout << "Cure type is " << B.getType() << std::endl;
 	std::cout << "Ice type is " << A2->getType() << std::endl;
 	std::cout << "Cure type is " << B2->getType() << std::endl;
+	ICharacter	*D = new Character("Trevor");
+	A2->use(*D);
+	B2->use(*D);
 	delete A2;
 	delete B2;
+	delete D;
 }
 
 void test_Character()
@@ -45,9 +49,13 @@ void test_Character()
 	B.printSlots();
 	AMateria *m = new Ice();
 	B.equip(m);
+	AMateria *n = new Cure();
+	B.equip(n);
 	B.printSlots();
 	B.unequip(0);
+	B.unequip(3);
 	B.printSlots();
+	delete m;
 }
 
 int main()

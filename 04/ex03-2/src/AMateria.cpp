@@ -44,3 +44,8 @@ AMateria* AMateria::clone() const
 	//AMateria n(*this);
 	return (n);
 }
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "* Unknown effects of this Materia on " << target.getName() << " *" << std::endl;
+}
