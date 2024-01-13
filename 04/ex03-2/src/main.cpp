@@ -62,13 +62,39 @@ void test_MateriaSource()
 {
 	MateriaSource A;
 	MateriaSource B(A);
+	A.learnMateria(new Ice());
+	A.learnMateria(new Ice());
+	A.learnMateria(new Cure());
+	A.printSlots();
+	AMateria* m = A.createMateria("cure");
+	std::cout << "AMateria type is " << m->getType() << std::endl;
+}
+
+void test_Subject()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 }
 
 int main()
 {
-	test_AMateria();
-	test_Ice_Cure();
-	test_Character();
-	test_MateriaSource();
+	//test_AMateria();
+	//test_Ice_Cure();
+	//test_Character();
+	//test_MateriaSource();
+	test_Subject();
 	return 0;
 }

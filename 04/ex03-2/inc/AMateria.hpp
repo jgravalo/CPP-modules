@@ -1,6 +1,5 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
-//#pragma once
 
 #include"All.h"
 
