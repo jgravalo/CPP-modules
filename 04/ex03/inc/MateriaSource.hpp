@@ -10,8 +10,7 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		// * data *
-		AMateria*	slots[4];
+		AMateria*	store[4];
 	public:
 		MateriaSource();
 		//MateriaSource(std::string _type);

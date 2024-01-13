@@ -4,7 +4,7 @@ MateriaSource::MateriaSource()
 {
 	for (size_t i = 0; i < 4; i++)
 	{
-		slots[i] = NULL;
+		store[i] = NULL;
 	}
 }
 
@@ -12,9 +12,9 @@ MateriaSource::MateriaSource(class MateriaSource& Copy)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		slots[i] = NULL;
-		if (Copy.slots[i] != NULL)
-			slots[i] = Copy.slots[i]->clone();
+		store[i] = NULL;
+		if (Copy.store[i] != NULL)
+			store[i] = Copy.store[i]->clone();
 	}
 }
 
@@ -22,11 +22,11 @@ MateriaSource&	MateriaSource::operator=(class MateriaSource& Copy)
 {
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (slots[i] != NULL)
-			delete slots[i];
-		slots[i] = NULL;
-		if (Copy.slots[i] != NULL)
-			slots[i] = Copy.slots[i]->clone();
+		if (store[i] != NULL)
+			delete store[i];
+		store[i] = NULL;
+		if (Copy.store[i] != NULL)
+			store[i] = Copy.store[i]->clone();
 	}
 	return (*this);
 }
@@ -35,8 +35,8 @@ MateriaSource::~MateriaSource()
 {
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (slots[i] != NULL)
-			delete slots[i];
+		if (store[i] != NULL)
+			delete store[i];
 	}
 }
 
@@ -44,21 +44,21 @@ void		MateriaSource::learnMateria(AMateria* m)
 {
 	int i;
 
-	for (i = 0; i < 4 && slots[i] != NULL; i++)
+	for (i = 0; i < 4 && store[i] != NULL; i++)
 		;
 	if (i >= 4)
 		std::cout << "! the store are full !" << std::endl;
 	else
-		slots[i] = m;
+		store[i] = m;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (type == slots[i]->getType())
+		if (type == store[i]->getType())
 		{
-			AMateria	*m = slots[i]->clone();
+			AMateria	*m = store[i]->clone();
 			return (m);
 		}
 	}
@@ -68,12 +68,12 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 
 void	MateriaSource::printSlots()
 {
-	std::cout << "slots:" << std::endl;
+	std::cout << "store:" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (slots[i] == NULL)
+		if (store[i] == NULL)
 			std::cout << i << ". (null)" << std::endl;
 		else
-			std::cout << i << ". " << slots[i]->getType() << std::endl;
+			std::cout << i << ". " << store[i]->getType() << std::endl;
 	}
 }
