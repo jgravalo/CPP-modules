@@ -31,3 +31,18 @@ Dog::~Dog()
     std::cout << "Dog Destructor called" << std::endl;
     delete Brain;
 }
+
+void	Dog::learn(std::string idea)
+{
+	Brain->learning(idea);
+}
+
+void	Dog::discuss(int idx)
+{
+	Brain->discussing(idx);
+}
+
+void	Dog::express()
+{
+	Brain->expressing();
+}

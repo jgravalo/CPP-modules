@@ -32,3 +32,19 @@ Cat::~Cat()
     std::cout << "Cat Destructor called" << std::endl;
     delete Brain;
 }
+
+
+void	Cat::learn(std::string idea)
+{
+	Brain->learning(idea);
+}
+
+void	Cat::discuss(int idx)
+{
+	Brain->discussing(idx);
+}
+
+void	Cat::express()
+{
+	Brain->expressing();
+}

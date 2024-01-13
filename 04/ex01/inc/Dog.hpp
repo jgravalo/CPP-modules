@@ -12,7 +12,10 @@ class Dog : public Animal
         Dog(void);
         Dog(class Dog &Copy);
         Dog&        operator=(class Dog &Copy);
-        virtual ~Dog();
+        ~Dog();
+		void		learn(std::string idea);
+		void		discuss(int idx);
+		void		express();
 };
 
 #endif

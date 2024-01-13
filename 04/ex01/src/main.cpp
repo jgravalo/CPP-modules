@@ -16,6 +16,10 @@ int main()
     i.makeSound(); //will output the cat sound!
     j.makeSound();
     meta.makeSound();
+	j.learn("quiero huesos");
+	j.discuss(1);
+	j.express();
+
 
     WrongAnimal human2("human");
     WrongAnimal meta2;
