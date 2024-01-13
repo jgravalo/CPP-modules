@@ -52,10 +52,14 @@ void test_Character()
 	AMateria *n = new Cure();
 	B.equip(n);
 	B.printSlots();
+	ICharacter	*D = new Character();
+	B.use(0, *D);
+	B.use(3, *D);
 	B.unequip(0);
 	B.unequip(3);
 	B.printSlots();
 	delete m;
+	delete D;
 }
 
 void test_MateriaSource()
@@ -93,8 +97,8 @@ int main()
 {
 	//test_AMateria();
 	//test_Ice_Cure();
-	//test_Character();
+	test_Character();
 	//test_MateriaSource();
-	test_Subject();
+	//test_Subject();
 	return 0;
 }

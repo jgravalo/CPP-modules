@@ -99,5 +99,19 @@ void	Character::printSlots()
 		else
 			std::cout << i << ". " << slots[i]->getType() << std::endl;
 	}
-	
+}
+
+void	Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx > 3)
+	{
+		std::cout << "! invalid idx !" << std::endl;
+		return ;
+	}
+	if (slots[idx] == NULL)
+	{
+		std::cout << "! empty slot !" << std::endl;
+		return ;
+	}
+	slots[idx]->use(target);
 }
