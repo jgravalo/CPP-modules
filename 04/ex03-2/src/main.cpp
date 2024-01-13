@@ -58,10 +58,17 @@ void test_Character()
 	delete m;
 }
 
+void test_MateriaSource()
+{
+	MateriaSource A;
+	MateriaSource B(A);
+}
+
 int main()
 {
 	test_AMateria();
 	test_Ice_Cure();
 	test_Character();
+	test_MateriaSource();
 	return 0;
 }

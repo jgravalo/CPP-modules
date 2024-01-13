@@ -74,7 +74,7 @@ void	Character::equip(AMateria* m)
 	for (i = 0; i < 4 && slots[i] != NULL; i++)
 		;
 	if (i >= 4)
-		std::cout << "the slots are full" << std::endl;
+		std::cout << "! the slots are full !" << std::endl;
 	else
 		slots[i] = m;
 }
@@ -83,7 +83,7 @@ void	Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
 	{
-		std::cout << "invalid idx" << std::endl;
+		std::cout << "! invalid idx !" << std::endl;
 		return ;
 	}
 	slots[idx] = NULL;
