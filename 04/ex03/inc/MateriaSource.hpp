@@ -1,33 +1,26 @@
+
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
-#include"AMateria.hpp"
-#include"ICharacter.hpp"
-#include"MateriaSource.hpp"
+#include<IMateriaSource.hpp>
+#include<All.h>
+
+//class ICharacter;
 
 class MateriaSource : public IMateriaSource
 {
+	private:
+		// * data *
+		AMateria*	slots[4];
 	public:
-		MateriaSource(void);
+		MateriaSource();
+		//MateriaSource(std::string _type);
 		MateriaSource(class MateriaSource& Copy);
 		MateriaSource&	operator=(class MateriaSource& Copy);
-		~MateriaSource(void);
+		~MateriaSource();
+		void		learnMateria(AMateria* m);
+		AMateria*	createMateria(std::string const & type);
+		void		printSlots();
 };
 
-#endif
-
-MateriaSource::MateriaSource(void)
-{
-}
-
-MateriaSource::MateriaSource(class MateriaSource& Copy)
-{
-}
-
-MateriaSource&	MateriaSource::operator=(class MateriaSource& Copy)
-{
-}
-
-MateriaSource::~MateriaSource(void)
-{
-}
+#endif 

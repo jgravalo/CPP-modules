@@ -54,6 +54,7 @@ void test_Character()
 	B.printSlots();
 	ICharacter	*D = new Character();
 	B.use(0, *D);
+	B.use(1, *D);
 	B.use(3, *D);
 	B.unequip(0);
 	B.unequip(3);

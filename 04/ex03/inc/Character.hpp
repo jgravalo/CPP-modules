@@ -1,62 +1,27 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include"AMateria.hpp"
-#include"ICharacter.hpp"
-#include"IMateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "All.h"
 
 class Character : public ICharacter
 {
-	protected:
+	private:
 		std::string	name;
-		AMateria*	materias[4];
+		AMateria	*slots[4];
 	public:
-		Character(void);
+		Character();
 		Character(std::string _name);
-		Character(class Character& Copy);
-		Character&	operator=(class Character& Copy);
-		~Character(void);
+		Character(class Character &Copy);
+		Character&	operator=(class Character &Copy);
+		~Character();
+
+		//AMateria	*getSlot(int idx);
+		std::string const & getName() const;
+		void	equip(AMateria* m);
+		void	unequip(int idx);
+		void	printSlots();
+		void	use(int idx, ICharacter& target);
 };
 
 #endif
-
-Character::Character(void)
-{
-	name = "";
-	for (int i = 0; i < 4; i++)
-		Materias[i] = new AMateria();
-}
-
-Character::Character(std::string _name)
-{
-	name = _name;
-	for (int i = 0; i < 4; i++)
-		Materias[i] = new AMateria();
-}
-
-Character::Character(class Character& Copy)
-{
-	name = Copy.name;
-	for (int i = 0; i < 4; i++)
-	{
-		delete Materias[i];
-		Materias[i] = new AMateria(Copy.Materias[i]);
-	}
-}
-
-Character&	Character::operator=(class Character& Copy)
-{
-	name = Copy.name;
-	for (int i = 0; i < 4; i++)
-	{
-		delete Materias[i];
-		Materias[i] = new AMateria(Copy.Materias[i]);
-	}
-	return (*this);
-}
-
-Character::~Character(void)
-{
-	for (int i = 0; i < 4; i++)
-		delete Materias[i];
-}
