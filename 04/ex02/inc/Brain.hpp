@@ -12,6 +12,9 @@ class Brain
         Brain(class Brain& Copy);
         Brain&      operator=(class Brain& Copy);
         ~Brain(void);
+		void	learning(std::string idea);
+		void	discussing(int idx);
+		void	expressing();
 };
 
 #endif

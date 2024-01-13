@@ -6,8 +6,8 @@
 
 int main()
 {
-	/*
-    Cat i;
+/*
+	Cat i;
     Dog j;
     Animal human("human", "hola");
     Animal meta = human;
@@ -17,27 +17,28 @@ int main()
     i.makeSound(); //will output the cat sound!
     j.makeSound();
     meta.makeSound();
+	j.learn("quiero huesos");
+	j.discuss(1);
+	j.express();
+
 
     WrongAnimal human2("human");
     WrongAnimal meta2;
     WrongCat    i2;
     i2.makeSound();
     meta2.makeSound();
-	*/
-
+ */
     
     //const Animal* meta = new Animal();
-    //const Dog* j = new Dog();
     const Animal* j = new Dog();
-    const Cat* i = new Cat();
-    //const Animal* i = new Cat();
+    const Animal* i = new Cat();
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
     //std::cout << meta->getType() << " " << std::endl;
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     //meta->makeSound();
-    //delete meta;
+    ///delete meta;
     delete i;
     delete j;
 
@@ -47,6 +48,6 @@ int main()
     meta2->makeSound();
     delete meta2;
     delete i2;
-    
+   
     return (0);
 }

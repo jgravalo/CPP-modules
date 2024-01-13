@@ -33,6 +33,22 @@ Cat::~Cat()
     delete Brain;
 }
 
+
+void	Cat::learn(std::string idea)
+{
+	Brain->learning(idea);
+}
+
+void	Cat::discuss(int idx)
+{
+	Brain->discussing(idx);
+}
+
+void	Cat::express()
+{
+	Brain->expressing();
+}
+
 void	Cat::makeSound(void) const
 {
     if (sound == "")

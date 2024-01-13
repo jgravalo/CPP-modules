@@ -32,10 +32,24 @@ Dog::~Dog()
     delete Brain;
 }
 
+void	Dog::learn(std::string idea)
+{
+	Brain->learning(idea);
+}
+
+void	Dog::discuss(int idx)
+{
+	Brain->discussing(idx);
+}
+
+void	Dog::express()
+{
+	Brain->expressing();
+}
+
 void	Dog::makeSound(void) const
 {
     if (sound == "")
         return ;
     std::cout << sound << std::endl;
 }
-

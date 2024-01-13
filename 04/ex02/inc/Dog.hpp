@@ -11,8 +11,11 @@ class Dog : public Animal
     public:
         Dog(void);
         Dog(class Dog &Copy);
-        Dog&        operator=(class Dog &Copy);
-        virtual ~Dog();
+        Dog&	operator=(class Dog &Copy);
+        ~Dog();
+		void	learn(std::string idea);
+		void	discuss(int idx);
+		void	express();
 		void	makeSound(void) const;
 };
 
