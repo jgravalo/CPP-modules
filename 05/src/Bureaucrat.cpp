@@ -1,56 +1,79 @@
 #include<Bureaucrat.hpp>
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat() : name("confidential")
 {
-    name = "confidential";
     grade = 150;
 }
 
-Bureaucrat::Bureaucrat(class Bureaucrat& Copy)
+Bureaucrat::Bureaucrat(std::string _name, int _grade) : name(_name)
 {
-    name = Copy.getName();
+    grade = _grade;
+	check();
+}
+
+Bureaucrat::Bureaucrat(class Bureaucrat& Copy) : name(Copy.getName())
+{
     grade = Copy.getGrade();
 }
 
 Bureaucrat& Bureaucrat::operator=(class Bureaucrat& Copy)
 {
-    name = Copy.getName();
     grade = Copy.getGrade();
     return (*this);
 }
 
-Bureaucrat::~Bureaucrat(void)
+Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string Bureaucrat::getName(void)
+std::string Bureaucrat::getName()
 {
     return(name);
 }
 
-int         Bureaucrat::getGrade(void)
+int         Bureaucrat::getGrade()
 {
     return (grade);
 }
-
+/* 
 void        Bureaucrat::setName(std::string _name)
 {
     name = _name;
 }
-
+ */
 void        Bureaucrat::setGrade(int _grade)
 {
     grade = _grade;
 }
 
-void        Bureaucrat::gradePromotion(void)
+void        Bureaucrat::gradePromotion()
 {
     grade--;
+	check();
 }
 
-void        Bureaucrat::gradeDemotion(void)
+void        Bureaucrat::gradeDemotion()
 {
     grade++;
+	check();
+}
+
+void		Bureaucrat::check()
+{
+	if (grade > 150)
+		GradeTooLowException();
+	else if (grade < 1)
+		GradeTooHighException();
+}
+
+const char*	Bureaucrat::GradeTooHighException::what()
+{
+	return("Grade too high");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what()
+{
+	return("Grade too low");
 }
 
 std::ostream&   operator<<(std::ostream& out, class Bureaucrat& Copy)

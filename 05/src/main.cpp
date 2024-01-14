@@ -2,18 +2,19 @@
 
 int main()
 {
-    Bureaucrat  Bureaucrat;
+	Bureaucrat  Bureaucrat;
 
-    std::cout << Bureaucrat << std::endl;
-    /*
-    try
-    {
-        
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    */
-    return 0;
+	std::cout << Bureaucrat << std::endl;
+/* 
+	try
+	{
+		Bureaucrat.gradeDemotion();
+		std::cout << Bureaucrat << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+ */
+	return 0;
 }
