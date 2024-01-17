@@ -1,6 +1,9 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
+#define FULL_SLOT 4
+#define FULL_FLOOR 100
+
 #include "ICharacter.hpp"
 #include "All.h"
 
@@ -8,8 +11,8 @@ class Character : public ICharacter
 {
 	private:
 		std::string	name;
-		AMateria	*slots[4];
-		AMateria	*floor[4];
+		AMateria	*slots[FULL_SLOT];
+		AMateria	*floor[FULL_FLOOR];
 	public:
 		Character();
 		Character(std::string _name);

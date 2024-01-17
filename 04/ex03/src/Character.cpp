@@ -6,11 +6,11 @@ Character::Character()
 	size_t i;
 
 	name = "unnamed";
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_SLOT; i++)
 	{
 		slots[i] = NULL;
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_FLOOR; i++)
 	{
 		floor[i] = NULL;
 	}
@@ -22,11 +22,11 @@ Character::Character(std::string _name)
 	size_t i;
 
 	name = _name;
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_SLOT; i++)
 	{
 		slots[i] = NULL;
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_FLOOR; i++)
 	{
 		floor[i] = NULL;
 	}
@@ -38,13 +38,13 @@ Character::Character(class Character &Copy)
 	size_t i;
 
 	name = Copy.getName();
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_SLOT; i++)
 	{
 		slots[i] = NULL;
 		if (Copy.slots[i] != NULL)
 			slots[i] = Copy.slots[i]->clone();
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_FLOOR; i++)
 	{
 		floor[i] = NULL;
 		if (Copy.floor[i] != NULL)
@@ -58,7 +58,7 @@ Character&	Character::operator=(class Character &Copy)
 	size_t i;
 
 	name = Copy.getName();
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_SLOT; i++)
 	{
 		if (slots[i] != NULL)
 			delete slots[i];
@@ -66,7 +66,7 @@ Character&	Character::operator=(class Character &Copy)
 		if (Copy.slots[i] != NULL)
 			slots[i] = Copy.slots[i]->clone();
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_FLOOR; i++)
 	{
 		if (floor[i] != NULL)
 			delete floor[i];
@@ -82,12 +82,12 @@ Character::~Character()
 	std::cout << "Character Destructor called" << std::endl;
 	size_t i;
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_SLOT; i++)
 	{
 		if (slots[i] != NULL)
 			delete slots[i];
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < FULL_FLOOR; i++)
 	{
 		if (floor[i] != NULL && floor[i]->getType() != "")
 			delete floor[i];
@@ -104,9 +104,9 @@ void	Character::equip(AMateria* m)
 {
 	int i;
 
-	for (i = 0; i < 4 && slots[i] != NULL; i++)
+	for (i = 0; i < FULL_SLOT && slots[i] != NULL; i++)
 		;
-	if (i >= 4)
+	if (i >= FULL_SLOT)
 		std::cout << "! the slots are full !" << std::endl;
 	else
 		slots[i] = m;
@@ -116,12 +116,12 @@ void	Character::unequip(int idx)
 {
 	int	i;
 
-	if (idx < 0 || idx > 3)
+	if (idx < 0 || idx >= FULL_SLOT)
 	{
 		std::cout << "! invalid idx !" << std::endl;
 		return ;
 	}
-	for (i = 0; i < 4 && floor[i] != NULL; i++)
+	for (i = 0; i < FULL_FLOOR && floor[i] != NULL; i++)
 		;
 	floor[i] = slots[idx];
 	slots[idx] = NULL;
@@ -130,7 +130,7 @@ void	Character::unequip(int idx)
 void	Character::printSlots()
 {
 	std::cout << "slots:" << std::endl;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < FULL_SLOT; i++)
 	{
 		if (slots[i] == NULL)
 			std::cout << i << ". (null)" << std::endl;
@@ -142,18 +142,16 @@ void	Character::printSlots()
 void	Character::printFloor()
 {
 	std::cout << "floor:" << std::endl;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < FULL_FLOOR; i++)
 	{
-		if (floor[i] == NULL)
-			std::cout << i << ". (null)" << std::endl;
-		else
+		if (floor[i] != NULL)
 			std::cout << i << ". <" << floor[i]->getType() << ">" << std::endl;
 	}
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > 3)
+	if (idx < 0 || idx >= FULL_SLOT)
 	{
 		std::cout << "! invalid idx !" << std::endl;
 		return ;

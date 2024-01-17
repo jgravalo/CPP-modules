@@ -52,6 +52,12 @@ void test_Character()
 	AMateria *n = new Cure();
 	B.equip(n);
 	B.equip(new Ice());
+	for (size_t i = 0; i < 50; i++)
+	{
+		B.equip(new Cure());
+		B.unequip(3);
+	}
+	
 	B.printSlots();
 	B.printFloor();
 	ICharacter	*D = new Character();
@@ -103,8 +109,8 @@ int main()
 {
 	//test_AMateria();
 	//test_Ice_Cure();
-	test_Character();
+	//test_Character();
 	//test_MateriaSource();
-	//test_Subject();
+	test_Subject();
 	return 0;
 }
