@@ -2,6 +2,7 @@
 
 Character::Character()
 {
+	std::cout << "Character Default constructor called" << std::endl;
 	size_t i;
 
 	name = "unnamed";
@@ -17,6 +18,7 @@ Character::Character()
 
 Character::Character(std::string _name)
 {
+	std::cout << "Character constructor with arguments called" << std::endl;
 	size_t i;
 
 	name = _name;
@@ -32,6 +34,7 @@ Character::Character(std::string _name)
 
 Character::Character(class Character &Copy)
 {
+	std::cout << "Character Copy constructor called" << std::endl;
 	size_t i;
 
 	name = Copy.getName();
@@ -51,6 +54,7 @@ Character::Character(class Character &Copy)
 
 Character&	Character::operator=(class Character &Copy)
 {
+	std::cout << "Character Copy assignment operator called" << std::endl;
 	size_t i;
 
 	name = Copy.getName();
@@ -75,6 +79,7 @@ Character&	Character::operator=(class Character &Copy)
 
 Character::~Character()
 {
+	std::cout << "Character Destructor called" << std::endl;
 	size_t i;
 
 	for (i = 0; i < 4; i++)

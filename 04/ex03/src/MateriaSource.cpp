@@ -2,6 +2,7 @@
 
 MateriaSource::MateriaSource()
 {
+	std::cout << "AMateria Default constructor called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		store[i] = NULL;
@@ -10,6 +11,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(class MateriaSource& Copy)
 {
+	std::cout << "AMateria Copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		store[i] = NULL;
@@ -20,6 +22,7 @@ MateriaSource::MateriaSource(class MateriaSource& Copy)
 
 MateriaSource&	MateriaSource::operator=(class MateriaSource& Copy)
 {
+	std::cout << "MateriaSource Copy assignment operator called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (store[i] != NULL)
@@ -33,6 +36,7 @@ MateriaSource&	MateriaSource::operator=(class MateriaSource& Copy)
 
 MateriaSource::~MateriaSource()
 {
+	std::cout << "AMateria Destructor called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (store[i] != NULL)
