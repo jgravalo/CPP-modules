@@ -51,16 +51,21 @@ void test_Character()
 	B.equip(m);
 	AMateria *n = new Cure();
 	B.equip(n);
+	B.equip(new Ice());
 	B.printSlots();
+	B.printFloor();
 	ICharacter	*D = new Character();
 	B.use(0, *D);
 	B.use(1, *D);
 	B.use(3, *D);
 	B.unequip(0);
+	B.unequip(2);
 	B.unequip(3);
 	B.printSlots();
+	B.printFloor();
 	delete m;
 	delete D;
+	//std::cout << "aqui" << std::endl;
 }
 
 void test_MateriaSource()

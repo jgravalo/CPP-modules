@@ -9,6 +9,7 @@ class Character : public ICharacter
 	private:
 		std::string	name;
 		AMateria	*slots[4];
+		AMateria	*floor[4];
 	public:
 		Character();
 		Character(std::string _name);
@@ -21,6 +22,7 @@ class Character : public ICharacter
 		void	equip(AMateria* m);
 		void	unequip(int idx);
 		void	printSlots();
+		void	printFloor();
 		void	use(int idx, ICharacter& target);
 };
 

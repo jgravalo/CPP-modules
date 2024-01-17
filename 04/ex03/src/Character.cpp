@@ -2,65 +2,93 @@
 
 Character::Character()
 {
+	size_t i;
+
 	name = "unnamed";
-	for (size_t i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		slots[i] = NULL;
+	}
+	for (i = 0; i < 4; i++)
+	{
+		floor[i] = NULL;
 	}
 }
 
 Character::Character(std::string _name)
 {
+	size_t i;
+
 	name = _name;
-	for (size_t i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		slots[i] = NULL;
+	}
+	for (i = 0; i < 4; i++)
+	{
+		floor[i] = NULL;
 	}
 }
 
 Character::Character(class Character &Copy)
 {
+	size_t i;
+
 	name = Copy.getName();
-	for (int i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		slots[i] = NULL;
 		if (Copy.slots[i] != NULL)
 			slots[i] = Copy.slots[i]->clone();
 	}
+	for (i = 0; i < 4; i++)
+	{
+		floor[i] = NULL;
+		if (Copy.floor[i] != NULL)
+			floor[i] = Copy.floor[i]->clone();
+	}
 }
 
 Character&	Character::operator=(class Character &Copy)
 {
+	size_t i;
+
 	name = Copy.getName();
-	for (size_t i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		if (slots[i] != NULL)
 			delete slots[i];
 		slots[i] = NULL;
 		if (Copy.slots[i] != NULL)
 			slots[i] = Copy.slots[i]->clone();
+	}
+	for (i = 0; i < 4; i++)
+	{
+		if (floor[i] != NULL)
+			delete floor[i];
+		floor[i] = NULL;
+		if (Copy.floor[i] != NULL)
+			floor[i] = Copy.floor[i]->clone();
 	}
 	return (*this);
 }
 
 Character::~Character()
 {
-	for (size_t i = 0; i < 4; i++)
+	size_t i;
+
+	for (i = 0; i < 4; i++)
 	{
 		if (slots[i] != NULL)
 			delete slots[i];
 	}
-}
-/*
-AMateria*	Character::getSlot(int idx)
-{
-	if (idx < 0 || idx > 3)
+	for (i = 0; i < 4; i++)
 	{
-		std::cout << "invalid idx" << std::endl;
-		return (slots[idx]);
+		if (floor[i] != NULL && floor[i]->getType() != "")
+			delete floor[i];
 	}
 }
-*/
+
 std::string const & Character::getName() const
 {
 	std::string const	*ptr = &name;
@@ -81,11 +109,16 @@ void	Character::equip(AMateria* m)
 
 void	Character::unequip(int idx)
 {
+	int	i;
+
 	if (idx < 0 || idx > 3)
 	{
 		std::cout << "! invalid idx !" << std::endl;
 		return ;
 	}
+	for (i = 0; i < 4 && floor[i] != NULL; i++)
+		;
+	floor[i] = slots[idx];
 	slots[idx] = NULL;
 }
 
@@ -97,7 +130,19 @@ void	Character::printSlots()
 		if (slots[i] == NULL)
 			std::cout << i << ". (null)" << std::endl;
 		else
-			std::cout << i << ". " << slots[i]->getType() << std::endl;
+			std::cout << i << ". <" << slots[i]->getType() << ">" << std::endl;
+	}
+}
+
+void	Character::printFloor()
+{
+	std::cout << "floor:" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (floor[i] == NULL)
+			std::cout << i << ". (null)" << std::endl;
+		else
+			std::cout << i << ". <" << floor[i]->getType() << ">" << std::endl;
 	}
 }
 
