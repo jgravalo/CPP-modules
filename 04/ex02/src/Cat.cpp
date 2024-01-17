@@ -33,6 +33,12 @@ Cat::~Cat()
     delete Brain;
 }
 
+void	Cat::makeSound(void) const
+{
+    if (sound == "")
+        return ;
+    std::cout << sound << std::endl;
+}
 
 void	Cat::learn(std::string idea)
 {
@@ -49,9 +55,7 @@ void	Cat::express()
 	Brain->expressing();
 }
 
-void	Cat::makeSound(void) const
+void	Cat::forget(int idx)
 {
-    if (sound == "")
-        return ;
-    std::cout << sound << std::endl;
+	Brain->forgetting(idx);
 }

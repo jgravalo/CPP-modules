@@ -11,12 +11,13 @@ class Cat : public Animal
     public:
         Cat(void);
         Cat(class Cat &Copy);
-        Cat&	operator=(class Cat &Copy);
+        Cat&        operator=(class Cat &Copy);
         ~Cat();
-		void	learn(std::string idea);
-		void	discuss(int idx);
-		void	express();
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		void		learn(std::string idea);
+		void		discuss(int idx);
+		void		express();
+		void		forget(int idx);
 };
 
 #endif
