@@ -15,6 +15,7 @@ class Brain
 		void	learning(std::string idea);
 		void	discussing(int idx);
 		void	expressing();
+		void	forgetting(int idx);
 };
 
 #endif

@@ -16,6 +16,7 @@ class Dog : public Animal
 		void		learn(std::string idea);
 		void		discuss(int idx);
 		void		express();
+		void		forget(int idx);
 };
 
 #endif

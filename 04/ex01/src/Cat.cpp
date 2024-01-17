@@ -48,3 +48,8 @@ void	Cat::express()
 {
 	Brain->expressing();
 }
+
+void	Cat::forget(int idx)
+{
+	Brain->forgetting(idx);
+}

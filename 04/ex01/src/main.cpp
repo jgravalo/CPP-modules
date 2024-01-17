@@ -17,7 +17,11 @@ int main()
     j.makeSound();
     meta.makeSound();
 	j.learn("quiero huesos");
+	j.learn("quiero agua");
 	j.discuss(1);
+	j.discuss(2);
+	j.express();
+	j.forget(0);
 	j.express();
 
 

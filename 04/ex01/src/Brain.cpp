@@ -51,6 +51,12 @@ void	Brain::discussing(int idx)
 
 void	Brain::expressing()
 {
-	for (int i = 0; i < 100 && ideas[i] != ""; i++)
+	for (int i = 0; i < 100; i++)
+		if (ideas[i] != "")
 			std::cout << "* " << ideas[i] << " *" << std::endl;
+}
+
+void	Brain::forgetting(int idx)
+{
+	ideas[idx] = "";
 }

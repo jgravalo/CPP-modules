@@ -46,3 +46,8 @@ void	Dog::express()
 {
 	Brain->expressing();
 }
+
+void	Dog::forget(int idx)
+{
+	Brain->forgetting(idx);
+}
